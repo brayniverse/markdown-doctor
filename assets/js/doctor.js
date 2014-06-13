@@ -26,7 +26,7 @@
         link: function( $scope, $element, $attr ) {
           $attr.$observe( 'link', function( link ) {
             if ( link !== '' ) {
-              $http.get( '/pages/' + $attr.link ).success(function( markdown ) {
+              $http.get( 'pages/' + $attr.link ).success(function( markdown ) {
                 var htmlText = converter.makeHtml( markdown );
                 $element.html( htmlText );
               });
@@ -47,7 +47,7 @@
       return {
         pages: [],
         getPages: function( callback ) {
-          $http.get( '/pages/contents.json' ).success( callback );
+          $http.get( 'pages/contents.json' ).success( callback );
         },
         getPage: function( slug, callback ) {
           this.getPages(function( pages ) {

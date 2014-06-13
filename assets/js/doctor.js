@@ -11,7 +11,7 @@
     angular.module( 'doctor', [ 'ngRoute' ] )
 
     // Setup configuration values that will be used by the doctor.
-    .constant( 'url', 'http://brayniverse.github.io/markdown-doctor' )
+    .constant( 'url', 'http://brayniverse.github.io/markdown-doctor/' )
     .constant( 'title', 'MDDr' )
     .constant( 'description', 'The automatic markdown documentation parser' )
     .constant( 'theme', 'basic' )

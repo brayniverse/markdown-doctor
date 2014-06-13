@@ -11,13 +11,14 @@
     angular.module( 'doctor', [ 'ngRoute' ] )
 
     // Setup configuration values that will be used by the doctor.
+    .constant( 'url', 'http://brayniverse.github.io/markdown-doctor' )
     .constant( 'title', 'MDDr' )
     .constant( 'description', 'The automatic markdown documentation parser' )
     .constant( 'theme', 'basic' )
 
     // Markdown directive. Parses markdown files and sets the elements HTML to
     // the parsed text.
-    .directive( 'markdown', function( $http ) {
+    .directive( 'markdown', function( $http, url ) {
       var converter = new Showdown.converter();
 
       return {
@@ -26,7 +27,7 @@
         link: function( $scope, $element, $attr ) {
           $attr.$observe( 'link', function( link ) {
             if ( link !== '' ) {
-              $http.get( 'pages/' + $attr.link ).success(function( markdown ) {
+              $http.get( url + 'pages/' + $attr.link ).success(function( markdown ) {
                 var htmlText = converter.makeHtml( markdown );
                 $element.html( htmlText );
               });
@@ -43,11 +44,11 @@
       }
     })
 
-    .factory( 'Pages', function( $http ) {
+    .factory( 'Pages', function( $http, url ) {
       return {
         pages: [],
         getPages: function( callback ) {
-          $http.get( 'pages/contents.json' ).success( callback );
+          $http.get( url + 'pages/contents.json' ).success( callback );
         },
         getPage: function( slug, callback ) {
           this.getPages(function( pages ) {
@@ -61,7 +62,8 @@
       }
     })
 
-    .controller( 'siteController', function( $scope, title, description, Pages ) {
+    .controller( 'siteController', function( $scope, url, title, description, Pages ) {
+      $scope.url         = url
       $scope.title       = title;
       $scope.description = description;
 
@@ -76,10 +78,10 @@
       });
     })
 
-    .config(function( $routeProvider, $locationProvider, theme ) {
+    .config(function( $routeProvider, $locationProvider, theme, url ) {
       $routeProvider
         .when( '/:pageId', {
-          templateUrl: 'themes/' + theme + '/page.html',
+          templateUrl: url + 'themes/' + theme + '/page.html',
           controller: 'pageController'
         });
 

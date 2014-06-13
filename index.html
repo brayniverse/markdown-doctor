@@ -19,7 +19,7 @@
 
       <aside id="pages">
         <h2>Pages</h2>
-        <a href="{{page.slug}}" ng:repeat="page in pages">{{ page.title }}</a>
+        <a href="{{url}}{{page.slug}}" ng:repeat="page in pages">{{ page.title }}</a>
       </aside>
 
       <article class="page-content" ng:view></article>

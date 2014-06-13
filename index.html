@@ -1,38 +1,31 @@
 <!doctype html>
-<html ng:app="doctor" ng:controller="siteController">
+<html ng:app="app" ng:controller="appController">
   <head>
-    <title>{{title}}</title>
-    <base href="/markdown-doctor/">
-    <meta name="description" content="{{description}}">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/prism.css">
+    <title>{{config.title}}</title>
+    <base href="/">
+    <meta name="description" content="{{config.description}}">
+    <link rel="stylesheet" type="text/css" href="content/themes/default/assets/css/screen.css">
+    <link rel="stylesheet" type="text/css" href="content/themes/default/assets/css/prism.css">
   </head>
   <body>
 
-    <header id="site-masthead">
-      <div class="container">
-        <h1 class="site-heading">{{title}}</h1>
-        <h3>{{description}}</h3>
-      </div>
-    </header>
+    <ng:include src="'content/themes/' + config.theme + '/header.html'"></ng:include>
 
     <section class="site-content container">
-
-      <aside id="pages">
-        <h2>Pages</h2>
-        <a href="{{page.slug}}" ng:repeat="page in pages">{{ page.title }}</a>
-      </aside>
-
-      <article class="page-content" ng:view></article>
-
+      <ng:view></ng:view>
     </section>
+
+    <ng:include src="'content/themes/' + config.theme + '/footer.html'"></ng:include>
 
     <!-- Mandatory files DO NOT remove -->
     <script type="text/javascript" src="assets/js/prism.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular-route.min.js"></script>
+    <script type="text/javascript" src="assets/js/angular.js"></script>
+    <script type="text/javascript" src="assets/js/angular-route.js"></script>
     <script type="text/javascript" src="assets/js/showdown.js"></script>
-    <script type="text/javascript" src="assets/js/doctor.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers.js"></script>
+    <script type="text/javascript" src="app/directives.js"></script>
+    <script type="text/javascript" src="app/services.js"></script>
     <!-- Mandatory files DO NOT remove -->
 
   </body>

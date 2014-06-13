@@ -1,0 +1,13 @@
+<aside id="pages">
+  <h2>Pages</h2>
+  <hr>
+  <a href="#/contents">Contents</a>
+  <a href="#/pages/{{page.slug}}" ng:repeat="page in pages">{{ page.title }}</a>
+</aside>
+
+<article class="page">
+  <header class="page-header">
+    <h1 class="page-title">{{page.title}}</h1>
+  </header>
+  <section class="page-body" markdown link="{{page.file}}"></div>
+</article>

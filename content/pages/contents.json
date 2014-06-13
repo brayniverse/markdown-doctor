@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Introduction",
+    "slug":  "introduction",
+    "file":  "introduction.md",
+    "sections": [
+      "introduction",
+      "installation",
+      "customization"
+    ]
+  },
+  {
+    "title": "Example.md",
+    "slug":  "example-md",
+    "file":  "example.md",
+    "sections": [
+      "headers",
+      "code"
+    ]
+  }
+]

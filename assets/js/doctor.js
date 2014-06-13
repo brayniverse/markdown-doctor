@@ -61,9 +61,10 @@
       }
     })
 
-    .controller( 'siteController', function( $scope, title, description, Pages ) {
+    .controller( 'siteController', function( $scope, title, description, theme, Pages ) {
       $scope.title       = title;
       $scope.description = description;
+      $scope.theme       = theme;
 
       Pages.getPages(function( pages ) {
         $scope.pages = pages;
@@ -78,6 +79,7 @@
 
     .config(function( $routeProvider, $locationProvider, theme ) {
       $routeProvider
+
         .when( '/:pageId', {
           templateUrl: 'themes/' + theme + '/page.html',
           controller: 'pageController'

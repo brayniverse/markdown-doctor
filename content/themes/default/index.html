@@ -1,0 +1,11 @@
+<section>
+  <h2>Table of Contents</h2>
+  <ul>
+    <li ng:repeat="page in pages">
+      <h3><a href="#/pages/{{page.slug}}">{{page.title}}</a></h3>
+      <ul>
+        <li ng:repeat="section in page.sections"><h4>{{section}}</h4></li>
+      </ul>
+    </li>
+  </ul>
+</section>

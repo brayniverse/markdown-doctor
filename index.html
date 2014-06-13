@@ -2,6 +2,7 @@
 <html ng:app="doctor" ng:controller="siteController">
   <head>
     <title>{{title}}</title>
+    <base href="/markdown-doctor">
     <meta name="description" content="{{description}}">
     <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
     <link rel="stylesheet" type="text/css" href="assets/css/prism.css">
@@ -19,7 +20,7 @@
 
       <aside id="pages">
         <h2>Pages</h2>
-        <a href="{{url}}{{page.slug}}" ng:repeat="page in pages">{{ page.title }}</a>
+        <a href="{{page.slug}}" ng:repeat="page in pages">{{ page.title }}</a>
       </aside>
 
       <article class="page-content" ng:view></article>

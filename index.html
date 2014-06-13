@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng:app="doctor" ng:controller="siteController">
+  <head>
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/prism.css">
+  </head>
+  <body>
+
+    <header id="site-masthead">
+      <div class="container">
+        <h1 class="site-heading">{{title}}</h1>
+        <h3>{{description}}</h3>
+      </div>
+    </header>
+
+    <section class="site-content container">
+
+      <aside id="pages">
+        <h2>Pages</h2>
+        <a href="/{{page.slug}}" ng:repeat="page in pages">{{ page.title }}</a>
+      </aside>
+
+      <article class="page-content" ng:view></article>
+
+    </section>
+
+    <!-- Mandatory files DO NOT remove -->
+    <script type="text/javascript" src="/assets/js/prism.js"></script>
+    <script type="text/javascript" src="/assets/js/angular.js"></script>
+    <script type="text/javascript" src="/assets/js/angular-route.js"></script>
+    <script type="text/javascript" src="/assets/js/showdown.js"></script>
+    <script type="text/javascript" src="/assets/js/doctor.js"></script>
+    <!-- Mandatory files DO NOT remove -->
+
+  </body>
+</html>
